@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyWearApp</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="welcome_text">Hello Maanu</string>
+    <string name="welcome_screen_title">Your Accounts</string>
+</resources>
