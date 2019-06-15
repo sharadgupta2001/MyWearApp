@@ -5,20 +5,20 @@ import android.support.wearable.activity.WearableActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : WearableActivity() {
-    var maintitle = arrayOf("Savings", "Homeloan", "Credit Card", "Global", "Current")
 
-    var subtitle = arrayOf("INR 5000.01", "INR 200013.00", "INR 120.12", "USD 200.00", "GBP 100.00")
-
-    var imgid = arrayOf<Int>(
+    var accounts = arrayOf<Account>(
+        Account("Current", 2000.12,"INR", true),
+        Account("Saving", 200.12, "INR", false),
+        Account("Homeloan", 20010.12,"INR", true),
+        Account("Global", 2000.00, "USD", true)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        accList.adapter = AccountListAdapter(this, maintitle, subtitle, imgid)
+        accList.adapter = AccountsAdapter(this, accounts)
 
-        // Enables Always-on
         setAmbientEnabled()
     }
 }

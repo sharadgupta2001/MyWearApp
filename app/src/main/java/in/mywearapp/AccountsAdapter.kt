@@ -8,8 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-class AccountListAdapter (val context: Activity, val maintitle: Array<String>, val subtitle:Array<String>, val imgid:Array<Int>)
-            :ArrayAdapter<String>(context, R.layout.account_list, maintitle) {
+class AccountsAdapter (val context: Activity, val accounts: Array<Account>)
+            :ArrayAdapter<Account>(context, R.layout.account_list, accounts) {
 
 
     override fun getView(position : Int, view : View?, parent:ViewGroup): View {
@@ -19,9 +19,9 @@ class AccountListAdapter (val context: Activity, val maintitle: Array<String>, v
         val imageView = rowView.findViewById(R.id.icon) as ImageView
         val subtitleText = rowView.findViewById(R.id.subtitle) as TextView
 
-        titleText.setText(maintitle[position])
+        titleText.setText(accounts[position].name)
         imageView.setImageResource(R.drawable.ic_cc_checkmark)
-        subtitleText.setText(subtitle[position])
+        subtitleText.setText(accounts[position].currency + " " + accounts[position].balance)
         return rowView
     }
 }
